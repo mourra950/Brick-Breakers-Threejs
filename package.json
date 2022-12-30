@@ -1,0 +1,26 @@
+{
+  "name": "brick-breakers-threejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mourra950/Brick-Breakers-Threejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mourra950/Brick-Breakers-Threejs/issues"
+  },
+  "homepage": "https://github.com/mourra950/Brick-Breakers-Threejs#readme",
+  "dependencies": {
+    "cannon": "^0.6.2",
+    "es": "^0.8.0",
+    "parcel": "^2.8.2",
+    "three": "^0.148.0"
+  }
+}
