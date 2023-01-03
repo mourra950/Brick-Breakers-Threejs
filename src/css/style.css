@@ -16,11 +16,12 @@ body {
     
     display: block;
 }
-#score{
+div{
     text-align: center;
     display: flex;
     justify-content: space-around;
-    padding-top: 129px;
+    padding-top: 20px;
+    font-size: 100px;
 }
 #score1,#score2
 {

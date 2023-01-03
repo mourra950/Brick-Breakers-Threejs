@@ -189,7 +189,7 @@ function ball_update() {
     //check for ball and brick collision
     brickbodyarray.forEach((element, index) => {
         if (element.aabb.overlaps(ballbody.aabb)) {
-            if ((ballbody.position.x > element.position.x + 2.5) || (ballbody.position.x < element.position.x - 2.5)) {
+            if ((ballbody.position.x > element.position.x + 1) || (ballbody.position.x < element.position.x - 1)) {
                 balldx = -balldx;
             }
             else {
@@ -205,7 +205,7 @@ function ball_update() {
             score++;
         }
     });
-    console.log(ballbody.position.y);
+    //console.log(ballbody.position.y);
     if(ballbody.position.x>20)
     {
         balldx=-ballx
@@ -222,18 +222,30 @@ function ball_update() {
     {
         balldy=bally
     }
+    if(ballbody.position.y <-9.5)
+    {
+        alert('Game Over')
+        window.location.reload();
+        state=0
+          
+    }
     ballbody.position.x += balldx
     ballbody.position.y += balldy
+    //console.log(brickbodyarray.length)
+    if(brickbodyarray.length==0)
+    {
+        state=2
+    }
     
 }
 
 function game() {
     if (state == 0)//game starting
     {
-        ballbody.position.set(20, 9, 0);
+        ballbody.position.set(0, -6, 0);
         ball.position.set(0, 0, 0);
-        ballx =0.2 //(Math.random() * 0.4) - 0.2;
-        bally =0.2// (Math.random() * 0.3) ;
+        ballx =0.1 //(Math.random() * 0.4) - 0.2;
+        bally =0.1// (Math.random() * 0.3) ;
         balldx=Math.abs(ballx)
         balldy=Math.abs(bally)
         
@@ -246,12 +258,13 @@ function game() {
 
     }
     else if (state == 2) {
-        return;
+        alert('WELL PLAYED');
+        window.location.reload();
     }
     update_meshes();
 }
 
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
 
     //paddle2 controls main player
     if (event.key == 'a') {
@@ -265,7 +278,11 @@ document.addEventListener('keypress', (event) => {
 
 document.addEventListener('keyup', (event) => {
     //paddle2 controls main player
-    if (event.key == 'a' || event.key == 'd') {
+    if (event.key == 'a'&& paddledirection!=1)
+    {
+        paddledirection = 0
+    }
+    if(event.key == 'd' && paddledirection!=-1) {
         paddledirection = 0
     }
     if (event.key == 's' ) {
